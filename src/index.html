@@ -1,11 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThreeJS Starter</title>
-</head>
-<body>
-    <canvas class="webgl"></canvas>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shin Yamamoto</title>
+        <meta name="msapplication-square70x70logo" content="favicons/site-tile-70x70.png">
+        <meta name="msapplication-square150x150logo" content="favicons/site-tile-150x150.png">
+        <meta name="msapplication-wide310x150logo" content="favicons/site-tile-310x150.png">
+        <meta name="msapplication-square310x310logo" content="favicons/site-tile-310x310.png">
+        <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicons/favicon.ico">
+        <link rel="icon" type="image/vnd.microsoft.icon" href="favicons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="36x36" href="favicons/android-chrome-36x36.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="favicons/android-chrome-48x48.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="favicons/android-chrome-72x72.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicons/android-chrome-96x96.png">
+        <link rel="icon" type="image/png" sizes="128x128" href="favicons/android-chrome-128x128.png">
+        <link rel="icon" type="image/png" sizes="144x144" href="favicons/android-chrome-144x144.png">
+        <link rel="icon" type="image/png" sizes="152x152" href="favicons/android-chrome-152x152.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="256x256" href="favicons/android-chrome-256x256.png">
+        <link rel="icon" type="image/png" sizes="384x384" href="favicons/android-chrome-384x384.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="favicons/android-chrome-512x512.png">
+        <link rel="icon" type="image/png" sizes="36x36" href="favicons/icon-36x36.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="favicons/icon-48x48.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="favicons/icon-72x72.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicons/icon-96x96.png">
+        <link rel="icon" type="image/png" sizes="128x128" href="favicons/icon-128x128.png">
+        <link rel="icon" type="image/png" sizes="144x144" href="favicons/icon-144x144.png">
+        <link rel="icon" type="image/png" sizes="152x152" href="favicons/icon-152x152.png">
+        <link rel="icon" type="image/png" sizes="160x160" href="favicons/icon-160x160.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="favicons/icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="196x196" href="favicons/icon-196x196.png">
+        <link rel="icon" type="image/png" sizes="256x256" href="favicons/icon-256x256.png">
+        <link rel="icon" type="image/png" sizes="384x384" href="favicons/icon-384x384.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="favicons/icon-512x512.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicons/icon-16x16.png">
+        <link rel="icon" type="image/png" sizes="24x24" href="favicons/icon-24x24.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicons/icon-32x32.png">
+        <link rel="manifest" href="favicons/manifest.json">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Google font Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <section class="first-view">
+            <div class="content">
+                <img src="./images/now/nowIcon.jpeg" alt="nowIcon" class="nowIcon" id="nowIcon" />
+                <h1 id="shin">Shin<br>Yamamoto </h1>
+            </div>
+            <div id="scrollContainer" class="fuwafuwa">
+                <span class="material-icons scroll-icon">
+                    keyboard_double_arrow_down
+                </span>
+                <p id="scrollText" class="scrollText">scroll</p>
+            </div>
+        </section>
+
+        <div class="no-scroll">
+            <div class="blackToWhiteHalf">
+            </div>
+            <div class="whiteToBlackRest"></div>
+            <section class="profile" id="profile">
+                <div class="dotsContainer">
+                    <div class="bigDots">
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="big dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+                    <div class="bigDots second">
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft  dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="small dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+                    <div class="bigDots third">
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+                    <div class="bigDots four">
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fourDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+                    <div class="bigDots five fadeIn">
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+                    <div class="bigDots six">
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                        <span class="sixDot dot scr-target anime__fadeInLeft dotBlack"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-container scr-target anime__fadeInDown">
+                    <h1 class="bigText">P</h1>
+                    <h1 class="black smallText">rofile</h1>
+                </div>
+                <div class="profile-text-container">
+                    <p class="black profile-text scr-target anime__fadeInDown">Doshisha Economy Sophomore</p>
+                    <a class="black" href="https://techuni.org/" target="_blank" rel="noreferrer">
+                        <p class="black profile-text scr-target anime__fadeInDown">
+                            Tech.Uni
+                        </p>
+                    </a>
+                    <a href="https://twitter.com/cocococo_panda" target="_blank">
+                        <div class="flex scr-target anime__fadeInDown">
+                            <svg class="twitter" fill="#5555" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"
+                                width="20px" height="20px">
+                                <path
+                                    d="M 25.855469 5.574219 C 24.914063 5.992188 23.902344 6.273438 22.839844 6.402344 C 23.921875 5.75 24.757813 4.722656 25.148438 3.496094 C 24.132813 4.097656 23.007813 4.535156 21.8125 4.769531 C 20.855469 3.75 19.492188 3.113281 17.980469 3.113281 C 15.082031 3.113281 12.730469 5.464844 12.730469 8.363281 C 12.730469 8.773438 12.777344 9.175781 12.867188 9.558594 C 8.503906 9.339844 4.636719 7.246094 2.046875 4.070313 C 1.59375 4.847656 1.335938 5.75 1.335938 6.714844 C 1.335938 8.535156 2.261719 10.140625 3.671875 11.082031 C 2.808594 11.054688 2 10.820313 1.292969 10.425781 C 1.292969 10.449219 1.292969 10.46875 1.292969 10.492188 C 1.292969 13.035156 3.101563 15.15625 5.503906 15.640625 C 5.0625 15.761719 4.601563 15.824219 4.121094 15.824219 C 3.78125 15.824219 3.453125 15.792969 3.132813 15.730469 C 3.800781 17.8125 5.738281 19.335938 8.035156 19.375 C 6.242188 20.785156 3.976563 21.621094 1.515625 21.621094 C 1.089844 21.621094 0.675781 21.597656 0.265625 21.550781 C 2.585938 23.039063 5.347656 23.90625 8.3125 23.90625 C 17.96875 23.90625 23.25 15.90625 23.25 8.972656 C 23.25 8.742188 23.246094 8.515625 23.234375 8.289063 C 24.261719 7.554688 25.152344 6.628906 25.855469 5.574219" />
+                            </svg>
+                            <p class="black profile-text">@cocococo_panda</p>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shinyamamoto0422" target="_blank">
+                        <div class="flex scr-target anime__fadeInDown">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="#5555"
+                                shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+                                image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+                                viewBox="0 0 640 640">
+                                <path
+                                    d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z" />
+                            </svg>
+                            <p class="black profile-text">@shinyamamoto0422</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="backContainer scr-target anime__fadeIn"></div>
+            </section>
+
+            <div class="whiteToBlackRest1"></div>
+            <div class="blackToWhiteHalf1"></div>
+
+            <section class="skills">
+                <div class="profile-container scr-target anime__fadeInDown">
+                    <h1 class="skillBigText">S</h1>
+                    <h1 class="white">kills</h1>
+                </div>
+
+                <div class="dotsContainer1">
+                    <div class="bigDots six1">
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="sixDot dot scr-target anime__fadeInRight dotWhite"></span>
+
+                    </div>
+                    <div class="bigDots five1 fadeIn">
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fiveDot dot scr-target anime__fadeInRight dotWhite"></span>
+
+                    </div>
+                    <div class="bigDots four1">
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="fourDot dot scr-target anime__fadeInRight dotWhite"></span>
+
+                    </div>
+                    <div class="bigDots third1">
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="thirdDot dot scr-target anime__fadeInRight dotWhite"></span>
+
+                    </div>
+                    <div class="bigDots second1">
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="small dot scr-target anime__fadeInRight dotWhite"></span>
+
+                    </div>
+                    <div class="bigDots first1">
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                        <span class="big dot scr-target anime__fadeInRight dotWhite"></span>
+                    </div>
+                </div>
+                <div class="skillIconGroup">
+                    <div class="firstIconGroup scr-target anime__fadeInDown">
+                        <!-- javascript -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 256 256"
+                                preserveAspectRatio="xMinYMin meet">
+                                <path d="M0 0h256v256H0V0z" fill="#F7DF1E" />
+                                <path
+                                    d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247L210.29 147.43c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574" />
+                            </svg>
+                        </div>
+                        <!-- typescript -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="50px" height="50px" viewBox="0 0 256 256" version="1.1"
+                                preserveAspectRatio="xMidYMid">
+                                <g>
+                                    <polygon fill="#007ACC"
+                                        transform="translate(128.000000, 128.000000) scale(1, -1) translate(-128.000000, -128.000000) "
+                                        points="0 128 0 0 128 0 256 0 256 128 256 256 128 256 0 256" />
+                                    <path
+                                        d="M146.658132,223.436863 L146.739401,212.953054 L130.079084,212.953054 L113.418767,212.953054 L113.418767,165.613371 L113.418767,118.273689 L101.63464,118.273689 L89.8505126,118.273689 L89.8505126,165.613371 L89.8505126,212.953054 L73.1901951,212.953054 L56.5298776,212.953054 L56.5298776,223.233689 C56.5298776,228.922577 56.6517824,233.676863 56.8143221,233.798768 C56.9362269,233.961308 77.2130522,234.042577 101.797179,234.001943 L146.536227,233.880038 L146.658132,223.436863 Z"
+                                        fill="#FFFFFF"
+                                        transform="translate(101.634640, 176.142993) rotate(-180.000000) translate(-101.634640, -176.142993) " />
+                                    <path
+                                        d="M206.566631,234.272145 C213.068219,232.646748 218.025679,229.761668 222.57679,225.048018 C224.933616,222.528653 228.428219,217.936907 228.712663,216.839764 C228.793933,216.514684 217.659965,209.037859 210.914568,204.852462 C210.670758,204.689922 209.69552,205.74643 208.598377,207.371827 C205.306949,212.166748 201.852981,214.239129 196.570441,214.604843 C188.809171,215.133097 183.811076,211.069605 183.851711,204.283573 C183.851711,202.292462 184.136155,201.114049 184.948854,199.488653 C186.65552,195.953414 189.825044,193.840399 199.7806,189.533097 C218.106949,181.649922 225.949489,176.448653 230.825679,169.053097 C236.270758,160.804208 237.489806,147.638494 233.792028,137.845478 C229.728536,127.199129 219.651076,119.966113 205.469489,117.568653 C201.080917,116.796589 190.678377,116.918494 185.964727,117.771827 C175.684092,119.600399 165.931711,124.679764 159.917743,131.343891 C157.560917,133.944526 152.969171,140.730557 153.253616,141.218176 C153.37552,141.380716 154.432028,142.030875 155.610441,142.721668 C156.748219,143.371827 161.05552,145.850557 165.119012,148.207383 L172.473933,152.474049 L174.01806,150.198494 C176.171711,146.907065 180.885362,142.396589 183.729806,140.893097 C191.897425,136.585795 203.112663,137.195319 208.639012,142.15278 C210.995838,144.30643 211.971076,146.541351 211.971076,149.83278 C211.971076,152.799129 211.605362,154.099446 210.061235,156.334367 C208.070123,159.178811 204.006631,161.576272 192.466314,166.574367 C179.259965,172.263256 173.571076,175.798494 168.369806,181.406113 C165.362822,184.656907 162.518377,189.858176 161.339965,194.206113 C160.364727,197.822621 160.120917,206.884208 160.892981,210.541351 C163.61552,223.300716 173.245996,232.199764 187.143139,234.841034 C191.653616,235.694367 202.137425,235.369287 206.566631,234.272145 Z"
+                                        fill="#FFFFFF"
+                                        transform="translate(194.578507, 176.190240) scale(1, -1) translate(-194.578507, -176.190240) " />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- react -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="50px" height="50px" viewBox="0 -14 256 256" version="1.1"
+                                preserveAspectRatio="xMidYMid">
+                                <g>
+                                    <path
+                                        d="M210.483381,73.8236374 C207.827698,72.9095503 205.075867,72.0446761 202.24247,71.2267368 C202.708172,69.3261098 203.135596,67.4500894 203.515631,65.6059664 C209.753843,35.3248922 205.675082,10.9302478 191.747328,2.89849283 C178.392359,-4.80289661 156.551327,3.22703567 134.492936,22.4237776 C132.371761,24.2697233 130.244662,26.2241201 128.118477,28.2723861 C126.701777,26.917204 125.287358,25.6075897 123.876584,24.3549348 C100.758745,3.82852863 77.5866802,-4.82157937 63.6725966,3.23341515 C50.3303869,10.9571328 46.3792156,33.8904224 51.9945178,62.5880206 C52.5367729,65.3599011 53.1706189,68.1905639 53.8873982,71.068617 C50.6078941,71.9995641 47.4418534,72.9920277 44.4125156,74.0478303 C17.3093297,83.497195 0,98.3066828 0,113.667995 C0,129.533287 18.5815786,145.446423 46.8116526,155.095373 C49.0394553,155.856809 51.3511025,156.576778 53.7333796,157.260293 C52.9600965,160.37302 52.2875179,163.423318 51.7229345,166.398431 C46.3687351,194.597975 50.5500231,216.989464 63.8566899,224.664425 C77.6012619,232.590464 100.66852,224.443422 123.130185,204.809231 C124.905501,203.257196 126.687196,201.611293 128.472081,199.886102 C130.785552,202.113904 133.095375,204.222319 135.392897,206.199955 C157.14963,224.922338 178.637969,232.482469 191.932332,224.786092 C205.663234,216.837268 210.125675,192.78347 204.332202,163.5181 C203.88974,161.283006 203.374826,158.99961 202.796573,156.675661 C204.416503,156.196743 206.006814,155.702335 207.557482,155.188332 C236.905331,145.46465 256,129.745175 256,113.667995 C256,98.2510906 238.132466,83.3418093 210.483381,73.8236374 L210.483381,73.8236374 Z M204.118035,144.807565 C202.718197,145.270987 201.281904,145.718918 199.818271,146.153177 C196.578411,135.896354 192.205739,124.989735 186.854729,113.72131 C191.961041,102.721277 196.164656,91.9540963 199.313837,81.7638014 C201.93261,82.5215915 204.474374,83.3208483 206.923636,84.1643056 C230.613348,92.3195488 245.063763,104.377206 245.063763,113.667995 C245.063763,123.564379 229.457753,136.411268 204.118035,144.807565 L204.118035,144.807565 Z M193.603754,165.642007 C196.165567,178.582766 196.531475,190.282717 194.834536,199.429057 C193.309843,207.64764 190.243595,213.12715 186.452366,215.321689 C178.384612,219.991462 161.131788,213.921395 142.525146,197.909832 C140.392124,196.074366 138.243609,194.114502 136.088259,192.040261 C143.301619,184.151133 150.510878,174.979732 157.54698,164.793993 C169.922699,163.695814 181.614905,161.900447 192.218042,159.449363 C192.740247,161.555956 193.204126,163.621993 193.603754,165.642007 L193.603754,165.642007 Z M87.2761866,214.514686 C79.3938934,217.298414 73.1160375,217.378157 69.3211631,215.189998 C61.2461189,210.532528 57.8891498,192.554265 62.4682434,168.438039 C62.9927272,165.676183 63.6170041,162.839142 64.3365173,159.939216 C74.8234575,162.258154 86.4299951,163.926841 98.8353334,164.932519 C105.918826,174.899534 113.336329,184.06091 120.811247,192.08264 C119.178102,193.65928 117.551336,195.16028 115.933685,196.574699 C106.001303,205.256705 96.0479605,211.41654 87.2761866,214.514686 L87.2761866,214.514686 Z M50.3486141,144.746959 C37.8658105,140.48046 27.5570398,134.935332 20.4908634,128.884403 C14.1414664,123.446815 10.9357817,118.048415 10.9357817,113.667995 C10.9357817,104.34622 24.8334611,92.4562517 48.0123604,84.3748281 C50.8247961,83.3942121 53.7689223,82.4701001 56.8242337,81.6020363 C60.0276398,92.0224477 64.229889,102.917218 69.3011135,113.93411 C64.1642716,125.11459 59.9023288,136.182975 56.6674809,146.725506 C54.489347,146.099407 52.3791089,145.440499 50.3486141,144.746959 L50.3486141,144.746959 Z M62.7270678,60.4878073 C57.9160346,35.9004118 61.1112387,17.3525532 69.1516515,12.6982729 C77.7160924,7.74005624 96.6544653,14.8094222 116.614922,32.5329619 C117.890816,33.6657739 119.171723,34.8514442 120.456275,36.0781256 C113.018267,44.0647686 105.66866,53.1573386 98.6480514,63.0655695 C86.6081646,64.1815215 75.0831931,65.9741531 64.4868907,68.3746571 C63.8206914,65.6948233 63.2305903,63.0619242 62.7270678,60.4878073 L62.7270678,60.4878073 Z M173.153901,87.7550367 C170.620796,83.3796304 168.020249,79.1076627 165.369124,74.9523483 C173.537126,75.9849113 181.362914,77.3555864 188.712066,79.0329319 C186.505679,86.1041206 183.755673,93.4974728 180.518546,101.076741 C178.196419,96.6680702 175.740322,92.2229454 173.153901,87.7550367 L173.153901,87.7550367 Z M128.122121,43.8938899 C133.166461,49.3588189 138.218091,55.4603279 143.186789,62.0803968 C138.179814,61.8439007 133.110868,61.720868 128.000001,61.720868 C122.937434,61.720868 117.905854,61.8411667 112.929865,62.0735617 C117.903575,55.515009 122.99895,49.4217021 128.122121,43.8938899 L128.122121,43.8938899 Z M82.8018984,87.830679 C80.2715265,92.2183886 77.8609975,96.6393627 75.5753239,101.068539 C72.3906004,93.5156998 69.6661103,86.0886276 67.440586,78.9171899 C74.7446255,77.2826781 82.5335049,75.9461789 90.6495601,74.9332099 C87.9610684,79.1268011 85.3391054,83.4302106 82.8018984,87.8297677 L82.8018984,87.830679 L82.8018984,87.830679 Z M90.8833221,153.182899 C82.4979621,152.247395 74.5919739,150.979704 67.289757,149.390303 C69.5508242,142.09082 72.3354636,134.505173 75.5876271,126.789657 C77.8792246,131.215644 80.2993228,135.638441 82.8451877,140.03572 L82.8456433,140.03572 C85.4388987,144.515476 88.1255676,148.90364 90.8833221,153.182899 L90.8833221,153.182899 Z M128.424691,184.213105 C123.24137,178.620587 118.071264,172.434323 113.021912,165.780078 C117.923624,165.972373 122.921029,166.0708 128.000001,166.0708 C133.217953,166.0708 138.376211,165.953235 143.45336,165.727219 C138.468257,172.501308 133.434855,178.697141 128.424691,184.213105 L128.424691,184.213105 Z M180.622896,126.396409 C184.044571,134.195313 186.929004,141.741317 189.219234,148.9164 C181.796719,150.609693 173.782736,151.973534 165.339049,152.986959 C167.996555,148.775595 170.619884,144.430263 173.197646,139.960532 C175.805484,135.438399 178.28163,130.90943 180.622896,126.396409 L180.622896,126.396409 Z M163.724586,134.496971 C159.722835,141.435557 155.614455,148.059271 151.443648,154.311611 C143.847063,154.854776 135.998946,155.134562 128.000001,155.134562 C120.033408,155.134562 112.284171,154.887129 104.822013,154.402745 C100.48306,148.068386 96.285368,141.425078 92.3091341,134.556664 L92.3100455,134.556664 C88.3442923,127.706935 84.6943232,120.799333 81.3870228,113.930466 C84.6934118,107.045648 88.3338117,100.130301 92.276781,93.292874 L92.2758697,93.294241 C96.2293193,86.4385872 100.390102,79.8276317 104.688954,73.5329157 C112.302398,72.9573964 120.109505,72.6571055 127.999545,72.6571055 L128.000001,72.6571055 C135.925583,72.6571055 143.742714,72.9596746 151.353879,73.5402067 C155.587114,79.7888993 159.719645,86.3784378 163.688588,93.2350031 C167.702644,100.168578 171.389978,107.037901 174.724618,113.77508 C171.400003,120.627999 167.720871,127.566587 163.724586,134.496971 L163.724586,134.496971 Z M186.284677,12.3729198 C194.857321,17.3165548 198.191049,37.2542268 192.804953,63.3986692 C192.461372,65.0669011 192.074504,66.7661189 191.654369,68.4881206 C181.03346,66.0374921 169.500286,64.2138746 157.425315,63.0810626 C150.391035,53.0639249 143.101577,43.9572289 135.784778,36.073113 C137.751934,34.1806885 139.716356,32.3762092 141.672575,30.673346 C160.572216,14.2257007 178.236518,7.73185406 186.284677,12.3729198 L186.284677,12.3729198 Z M128.000001,90.8080696 C140.624975,90.8080696 150.859926,101.042565 150.859926,113.667995 C150.859926,126.292969 140.624975,136.527922 128.000001,136.527922 C115.375026,136.527922 105.140075,126.292969 105.140075,113.667995 C105.140075,101.042565 115.375026,90.8080696 128.000001,90.8080696 L128.000001,90.8080696 Z"
+                                        fill="#00D8FF" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- next.js -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 15 15"
+                                fill="#fff">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 10.087 13.6902 12.3681 11.6975 13.7163L4.90687 4.20942C4.78053 4.03255 4.5544 3.95756 4.34741 4.02389C4.14042 4.09022 4 4.28268 4 4.50004V12H5V6.06027L10.8299 14.2221C9.82661 14.7201 8.696 15 7.5 15C3.35786 15 0 11.6421 0 7.5ZM10 10V4H11V10H10Z"
+                                    fill="#fff" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="secondIconGroup scr-target anime__fadeInDown">
+                        <!-- graphql -->
+                        <div class="">
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="50px" height="50px" viewBox="-16 0 288 288" version="1.1"
+                                preserveAspectRatio="xMidYMid">
+                                <g fill-rule="evenodd">
+                                    <path
+                                        d="M152.575995,32.9634453 L211.722058,67.1124427 C213.387503,65.348329 215.332859,63.7907081 217.539734,62.5088708 C229.806457,55.4573413 245.452038,59.6441869 252.577021,71.9109101 C259.62855,84.1776333 255.441705,99.8232143 243.174982,106.948197 C240.984974,108.207124 238.684929,109.10784 236.343812,109.66832 L236.343812,177.99302 C238.659582,178.554683 240.934429,179.449686 243.101528,180.695443 C255.441705,187.820426 259.62855,203.466007 252.503568,215.73273 C245.452038,227.999453 229.733004,232.186299 217.46628,225.13477 C215.024105,223.730884 212.902189,221.983449 211.125456,219.988103 L152.340162,253.928803 C153.180519,256.46808 153.635248,259.18431 153.635248,262.008393 C153.635248,276.111452 142.176512,287.64364 128,287.64364 C113.823488,287.64364 102.364752,276.184905 102.364752,262.008393 C102.364752,259.488481 102.726802,257.054441 103.40181,254.755362 L44.2714887,220.615454 C42.6238257,222.34493 40.705394,223.873378 38.5337196,225.13477 C26.193543,232.186299 10.547962,227.999453 3.49643248,215.73273 C-3.55509701,203.466007 0.631748621,187.820426 12.8984718,180.695443 C15.0673397,179.448669 17.3418356,178.553222 19.6561876,177.991646 L19.6561876,109.66832 C17.3150714,109.10784 15.0150257,108.207124 12.8250184,106.948197 C0.558295189,99.8966677 -3.62855044,84.1776333 3.42297904,71.9109101 C10.4745085,59.6441869 26.193543,55.4573413 38.4602662,62.5088708 C40.6551374,63.7837361 42.5913269,65.3313931 44.2507413,67.0836756 L103.41276,32.9254664 C102.730718,30.6154532 102.364752,28.1687503 102.364752,25.6352478 C102.364752,11.4587354 113.823488,0 128,0 C142.176512,0 153.635248,11.4587354 153.635248,25.6352478 C153.635248,28.1826393 153.265258,30.6422768 152.575995,32.9634453 Z M146.413638,43.4848713 L205.700555,77.715193 C203.867899,84.1516888 204.540515,91.2885638 208.137694,97.5461579 C211.746601,103.824151 217.625783,107.985785 224.150543,109.607654 L224.150543,178.017842 C223.818032,178.099463 223.48718,178.187674 223.158201,178.282419 L145.72529,44.1686182 C145.959017,43.9450469 146.18851,43.7170876 146.413638,43.4848713 Z M110.29093,44.1841203 L32.8593279,178.295656 C32.524559,178.19844 32.1878611,178.108015 31.8494573,178.024438 L31.8494573,109.607654 C38.3742168,107.985785 44.2533992,103.824151 47.8623055,97.5461579 C51.466599,91.276189 52.1347497,84.1234583 50.2885426,77.6770157 L109.558747,43.4563434 C109.797913,43.7038019 110.042027,43.9464469 110.29093,44.1841203 Z M135.162749,50.259763 L212.576817,184.340928 C210.844241,185.99279 209.317376,187.91755 208.064241,190.097482 C206.818484,192.264581 205.923481,194.539429 205.361818,196.855198 L50.6395564,196.855198 C50.0779798,194.540846 49.1825333,192.26635 47.9357589,190.097482 C46.6776713,187.931497 45.1539248,186.017428 43.4300297,184.372667 L120.858821,50.2659993 C123.124941,50.9200822 125.520915,51.2704957 128,51.2704957 C130.486952,51.2704957 132.890265,50.9178547 135.162749,50.259763 Z M146.958084,244.737995 L205.860107,210.729899 C205.683398,210.174924 205.525483,209.614096 205.38664,209.048468 L50.6067643,209.048468 C50.5246888,209.380792 50.4360084,209.711472 50.3407792,210.040295 L109.531782,244.215239 C114.192298,239.378545 120.739739,236.373145 128,236.373145 C135.518379,236.373145 142.272352,239.596041 146.958084,244.737995 Z"
+                                        fill="#E535AB" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- hasura -->
+                        <div class="skillIcon">
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24"
+                                role="img">
+                                <path fill="currentColor"
+                                    d="M2.122.001a.393.393 0 0 0-.336.139C.448 1.725.034 6.02.724 8.172A4.54 4.54 0 0 1 .88 10.38c-.133.73-.269 1.612-.269 2.222C.611 18.895 5.712 24 12.001 24c6.29 0 11.388-5.102 11.388-11.399 0-.613-.133-1.493-.27-2.222a4.54 4.54 0 0 1 .157-2.207c.69-2.15.276-6.447-1.062-8.032a.405.405 0 0 0-.649.05l-1.649 2.59a1.268 1.268 0 0 1-1.693.275A11.325 11.325 0 0 0 12 1.203c-2.297 0-4.435.682-6.223 1.852a1.27 1.27 0 0 1-1.693-.276L2.434.19a.41.41 0 0 0-.312-.189zM12 3.805a8.835 8.835 0 0 1 8.82 8.824c-.004 4.864-3.959 8.823-8.82 8.823-4.861 0-8.816-3.959-8.816-8.824a8.836 8.836 0 0 1 5.048-7.976A8.73 8.73 0 0 1 12 3.805zM9.566 8.732a.254.254 0 0 0-.219.127.253.253 0 0 0 .003.255l1.848 3.111-2.482 3.787a.257.257 0 0 0-.011.26.252.252 0 0 0 .222.134h1.859a.258.258 0 0 0 .213-.116l1.341-2.098 1.202 2.086a.251.251 0 0 0 .22.128h1.832a.247.247 0 0 0 .219-.128.234.234 0 0 0 .006-.255l-2.253-3.908-1.933-3.259a.251.251 0 0 0-.22-.124z" />
+                            </svg>
+                        </div>
+                        <!-- nodejs -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px"
+                                viewBox="-3.8 -1.5 40.921 40.921">
+                                <defs>
+                                    <linearGradient id="b" x1="271.97" x2="211.104" y1="217.606" y2="341.772"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset=".3" stop-color="#3e863d" />
+                                        <stop offset=".5" stop-color="#55934f" />
+                                        <stop offset=".8" stop-color="#5aad45" />
+                                    </linearGradient>
+                                    <linearGradient id="d" x1="186.484" x2="297.349" y1="321.381" y2="239.465"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset=".57" stop-color="#3e863d" />
+                                        <stop offset=".72" stop-color="#619857" />
+                                        <stop offset="1" stop-color="#76ac64" />
+                                    </linearGradient>
+                                    <linearGradient id="f" x1="197.051" x2="288.72" y1="279.652" y2="279.652"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset=".16" stop-color="#6bbf47" />
+                                        <stop offset=".38" stop-color="#79b461" />
+                                        <stop offset=".47" stop-color="#75ac64" />
+                                        <stop offset=".7" stop-color="#659e5a" />
+                                        <stop offset=".9" stop-color="#3e863d" />
+                                    </linearGradient>
+                                    <clipPath id="a">
+                                        <path
+                                            d="m239.03 226.605-42.13 24.317a5.085 5.085 0 0 0-2.546 4.406v48.668c0 1.817.968 3.496 2.546 4.406l42.133 24.336a5.1 5.1 0 0 0 5.09 0l42.126-24.336a5.096 5.096 0 0 0 2.54-4.406v-48.668c0-1.816-.97-3.496-2.55-4.406l-42.12-24.317a5.123 5.123 0 0 0-5.1 0" />
+                                    </clipPath>
+                                    <clipPath id="c">
+                                        <path
+                                            d="M195.398 307.086c.403.523.907.976 1.5 1.316l36.14 20.875 6.02 3.46c.9.52 1.926.74 2.934.665.336-.027.672-.09 1-.183l44.434-81.36c-.34-.37-.738-.68-1.184-.94l-27.586-15.93-14.582-8.39a5.318 5.318 0 0 0-1.32-.53zm0 0" />
+                                    </clipPath>
+                                    <clipPath id="e">
+                                        <path
+                                            d="M241.066 225.953a5.14 5.14 0 0 0-2.035.652l-42.01 24.247 45.3 82.51c.63-.09 1.25-.3 1.81-.624l42.13-24.336a5.105 5.105 0 0 0 2.46-3.476l-46.18-78.89a5.29 5.29 0 0 0-1.03-.102l-.42.02" />
+                                    </clipPath>
+                                </defs>
+                                <g clip-path="url(#a)" transform="translate(-68.564 -79.701) scale(.35278)">
+                                    <path fill="url(#b)"
+                                        d="m331.363 246.793-118.715-58.19-60.87 124.174L270.49 370.97zm0 0" />
+                                </g>
+                                <g clip-path="url(#c)" transform="translate(-68.564 -79.701) scale(.35278)">
+                                    <path fill="url(#d)"
+                                        d="m144.07 264.004 83.825 113.453 110.86-81.906-83.83-113.45zm0 0" />
+                                </g>
+                                <g clip-path="url(#e)" transform="translate(-68.564 -79.701) scale(.35278)">
+                                    <path fill="url(#f)" d="M197.02 225.934v107.43h91.683v-107.43zm0 0" />
+                                </g>
+                            </svg>
+                        </div>
+                        <!-- git -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32">
+                                <title>file_type_git</title>
+                                <path
+                                    d="M29.472,14.753,17.247,2.528a1.8,1.8,0,0,0-2.55,0L12.158,5.067l3.22,3.22a2.141,2.141,0,0,1,2.712,2.73l3.1,3.1a2.143,2.143,0,1,1-1.285,1.21l-2.895-2.895v7.617a2.141,2.141,0,1,1-1.764-.062V12.3a2.146,2.146,0,0,1-1.165-2.814L10.911,6.314,2.528,14.7a1.8,1.8,0,0,0,0,2.551L14.753,29.472a1.8,1.8,0,0,0,2.55,0L29.472,17.3a1.8,1.8,0,0,0,0-2.551"
+                                    style="fill:#dd4c35" />
+                                <path
+                                    d="M12.158,5.067l3.22,3.22a2.141,2.141,0,0,1,2.712,2.73l3.1,3.1a2.143,2.143,0,1,1-1.285,1.21l-2.895-2.895v7.617a2.141,2.141,0,1,1-1.764-.062V12.3a2.146,2.146,0,0,1-1.165-2.814L10.911,6.314"
+                                    style="fill:#fff" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="thirdIconGroup scr-target anime__fadeInDown">
+                        <!-- docker -->
+                        <div class="">
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24">
+                                <path fill="#0DB7ED" fill-rule="evenodd"
+                                    d="M6.94221099,14.9002344 C6.9980621,14.9002344 7.05128211,14.9107588 7.10043586,14.9297745 C7.04721586,14.9606302 7.01109801,15.018335 7.01109801,15.0842919 C7.01109801,15.1828984 7.09098782,15.2626686 7.18959432,15.2626686 C7.25710599,15.2626686 7.31570779,15.2251754 7.34608506,15.1698027 C7.36743286,15.2214082 7.37939241,15.2780367 7.37939241,15.3374756 C7.37939241,15.578939 7.18361455,15.774657 6.94221099,15.774657 C6.70080744,15.774657 6.50496978,15.578939 6.50496978,15.3374756 C6.50496978,15.0959525 6.70080744,14.9002344 6.94221099,14.9002344 L6.94221099,14.9002344 Z M6.94221099,16.0853662 C6.52978585,16.0853662 6.19420083,15.7499008 6.19420083,15.3374756 C6.19420083,14.9250505 6.52978585,14.5895253 6.94221099,14.5895253 C7.35457634,14.5895253 7.69010156,14.9250505 7.69010156,15.3374756 C7.69010156,15.7499008 7.35457634,16.0853662 6.94221099,16.0853662 L6.94221099,16.0853662 Z M20.3859431,11.1838037 C18.2619865,16.8117894 13.4653093,19.318631 7.81023526,19.318631 C5.13823222,19.318631 3.00656172,18.3995992 1.64323262,16.8672219 L1.65327865,16.8605843 C2.04609012,16.880497 2.39758135,16.8872541 2.75439457,16.8872541 C3.08065114,16.8872541 3.39979178,16.8838457 3.6953721,16.8672219 C3.72108514,16.8657867 3.75325633,16.8621989 3.77878997,16.8605843 C3.77902916,16.8605245 3.86998155,16.8546046 3.82549202,16.853887 C4.57667146,16.8075437 5.15892224,16.7031368 5.70188589,16.5482008 C5.70200548,16.548141 5.70212508,16.548141 5.70224467,16.5480812 C5.80091098,16.5198567 5.89658739,16.4901372 5.98825735,16.4583846 C6.09081051,16.4228049 6.14510687,16.3108635 6.109587,16.2083104 C6.07406714,16.1056974 5.96218553,16.0512815 5.85957258,16.0869807 C5.16992503,16.3259326 4.26010213,16.4574876 3.14505333,16.4821841 L3.14475434,16.4821841 C2.57739321,16.4947416 1.95717085,16.4797922 1.28450587,16.4365584 L1.28444607,16.4365584 C1.14529669,16.2507668 1.01649231,16.0576798 0.89869073,15.8577161 L0.71248051,15.5172277 C0.149903198,14.4112083 -0.0964037696,13.1191582 0.0343141305,11.7160038 L16.3965356,11.7160038 C17.7407294,11.7160038 19.0534696,11.2143604 19.6764427,10.6609919 C18.5601381,9.75332174 18.670764,7.59731356 19.3822377,6.774616 C19.9997093,7.270758 20.9954018,8.31584342 20.824141,9.64622396 C21.6011531,9.255625 22.9506091,9.06259783 24,9.66816973 C23.3411483,10.9541803 21.8929064,11.3383809 20.3859431,11.1838037 L20.3859431,11.1838037 Z M2.25508329,11.3188869 L4.46771995,11.3188869 L4.46771995,9.1061306 L2.25508329,9.1061306 L2.25508329,11.3188869 Z M4.80808879,11.3188869 L7.02096464,11.3188869 L7.02096464,9.1061306 L4.80808879,9.1061306 L4.80808879,11.3188869 Z M4.80808879,8.76576176 L7.02096464,8.76576176 L7.02096464,6.5530653 L4.80808879,6.5530653 L4.80808879,8.76576176 Z M7.36127369,11.3188869 L9.57402994,11.3188869 L9.57402994,9.1061306 L7.36127369,9.1061306 L7.36127369,11.3188869 Z M7.36127369,8.76576176 L9.57402994,8.76576176 L9.57402994,6.5530653 L7.36127369,6.5530653 L7.36127369,8.76576176 Z M9.91433899,11.3188869 L12.1270952,11.3188869 L12.1270952,9.1061306 L9.91433899,9.1061306 L9.91433899,11.3188869 Z M9.91433899,8.76576176 L12.1270952,8.76576176 L12.1270952,6.5530653 L9.91433899,6.5530653 L9.91433899,8.76576176 Z M9.91433899,6.21275626 L12.1270952,6.21275626 L12.1270952,4 L9.91433899,4 L9.91433899,6.21275626 Z M12.4674043,11.3188869 L14.6801605,11.3188869 L14.6801605,9.1061306 L12.4674043,9.1061306 L12.4674043,11.3188869 Z" />
+                            </svg>
+                        </div>
+                        <!-- googleCloud -->
+                        <div>
+                            <?xml version="1.0" standalone="no"?>
+                            <!DOCTYPE svg
+                                PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="50px" height="50px" viewBox="0 -25 256 256" version="1.1"
+                                preserveAspectRatio="xMidYMid">
+                                <g>
+                                    <path
+                                        d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z"
+                                        fill="#EA4335" />
+                                    <path
+                                        d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182"
+                                        fill="#4285F4" />
+                                    <path
+                                        d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957"
+                                        fill="#34A853" />
+                                    <path
+                                        d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255"
+                                        fill="#FBBC05" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="blackToWhiteHalf2">
+                </div>
+
+                <div class="skillBackContainer scr-target anime__fadeIn"></div>
+            </section>
+
+            <section class="contact">
+                <h2 class="contact-text">Contact</h2>
+                <div class="contact-container">
+                    <div id="scrollContainer1" class="fuwafuwa">
+                        <span class="material-icons scroll-icon">
+                            keyboard_double_arrow_down
+                        </span>
+                        <p id="scrollText" class="scrollText">scroll</p>
+                    </div>
+                    <div class="contact__title">
+                        <h2 class="scr-target anime__fadeInDown">If you have any question and offer, please contact via
+                            twitter DM.</h2>
+                    </div>
+                    <div class="contact__container">
+                        <a href="https://twitter.com/cocococo_panda" target="_blank">
+                            <div class="flex scr-target anime__fadeIn twitterIcon">
+                                <svg class="twitterSNS" fill="#999" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 26 26" width="100px" height="100px">
+                                    <path
+                                        d="M 25.855469 5.574219 C 24.914063 5.992188 23.902344 6.273438 22.839844 6.402344 C 23.921875 5.75 24.757813 4.722656 25.148438 3.496094 C 24.132813 4.097656 23.007813 4.535156 21.8125 4.769531 C 20.855469 3.75 19.492188 3.113281 17.980469 3.113281 C 15.082031 3.113281 12.730469 5.464844 12.730469 8.363281 C 12.730469 8.773438 12.777344 9.175781 12.867188 9.558594 C 8.503906 9.339844 4.636719 7.246094 2.046875 4.070313 C 1.59375 4.847656 1.335938 5.75 1.335938 6.714844 C 1.335938 8.535156 2.261719 10.140625 3.671875 11.082031 C 2.808594 11.054688 2 10.820313 1.292969 10.425781 C 1.292969 10.449219 1.292969 10.46875 1.292969 10.492188 C 1.292969 13.035156 3.101563 15.15625 5.503906 15.640625 C 5.0625 15.761719 4.601563 15.824219 4.121094 15.824219 C 3.78125 15.824219 3.453125 15.792969 3.132813 15.730469 C 3.800781 17.8125 5.738281 19.335938 8.035156 19.375 C 6.242188 20.785156 3.976563 21.621094 1.515625 21.621094 C 1.089844 21.621094 0.675781 21.597656 0.265625 21.550781 C 2.585938 23.039063 5.347656 23.90625 8.3125 23.90625 C 17.96875 23.90625 23.25 15.90625 23.25 8.972656 C 23.25 8.742188 23.246094 8.515625 23.234375 8.289063 C 24.261719 7.554688 25.152344 6.628906 25.855469 5.574219" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <canvas class="webgl"></canvas>
+        <canvas class="dot"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+            integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CSSRulePlugin.min.js"
+            integrity="sha512-oYnRsy+bFXYr+btXcKk2dpzfERnCUc5G4GkJ0AO/XSvomLV7Xc7tZVhTsYIz9QzOAw9qo/6qoA6JTpzaYuHUGg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            // firstView
+            const content = document.querySelector('.content');
+            const nowIcon = document.getElementById('nowIcon');
+            const shin = document.getElementById('shin');
+            const tl = gsap.timeline();
+            tl.from(content, {
+                duration: 1.5,
+                opacity: 0.5,
+                scaleX: 0,
+                ease: "power3.easeIn"
+            })
+            tl.to(shin, {
+                duration: 1,
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                y: "10px",
+                ease: "power3.easeIn"
+            })
+            tl.to(nowIcon, {
+                duration: 1,
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                y: "10px",
+                ease: "power3.easeIn"
+            })
+            // scrollText
+            const scrollContainer = document.getElementById('scrollContainer');
+            tl.to(scrollContainer, {
+                duration: 2,
+                opacity: 1,
+                ease: "power3.easeIn"
+            })
+
+            window.addEventListener("load", function () {
+                const target = document.querySelectorAll('.scr-target')
+                const targetArray = Array.prototype.slice.call(target);
+                const options = {
+                    root: null,
+                    rootMargin: '0px 0px',
+                    threshold: 0.2
+                };
+
+                const observer = new IntersectionObserver(callback, options)
+                targetArray.forEach(function (tgt) {
+                    observer.observe(tgt)
+                });
+
+                function callback(entries) {
+                    entries.forEach(function (entry) {
+                        const target = entry.target;
+                        if (entry.isIntersecting && !target.classList.contains('is-active')) {
+                            target.classList.add('is-active');
+                        }
+                    });
+                };
+            });
+
+        </script>
+    </body>
+
 </html>
